@@ -79,5 +79,6 @@ void outputDat(const char *filename, const Eigen::VectorXd x, int n)
             int id = i + j * n;
             ofs << j << "\t" << i << "\t" << x(id) << std::endl;
         }
+        ofs << std::endl;
     }
 }
