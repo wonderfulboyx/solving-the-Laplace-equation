@@ -16,5 +16,3 @@ int main(int argc, char **arfv)
     std::vector<T> cofficients;
     Eigen::VectorXd b(m);
 }
-
-void 
