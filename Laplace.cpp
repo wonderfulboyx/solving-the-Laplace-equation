@@ -32,11 +32,11 @@ int main(int argc, char **argv)
 void setBoundary(std::vector<T> &coffs,int id, int i, int j,double w,
                         Eigen::VectorXd &b, int n)
 {
-    if(i == -1){
+    if(i == n){
         b(id) -= w * (double)j / (double)n;
     }
     else
-    if (j == -1){
+    if (j == n){
         b(id) -= w * (double)i / (double)n;
     }
 }
