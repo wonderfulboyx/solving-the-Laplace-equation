@@ -52,8 +52,6 @@ void insertCofficient(std::vector<T> &coffs,int id, int i, int j, double w,
     else
     {
         coffs.push_back(T(id, id1, w));
-        std::cout << coffs.size() << "\t" << coffs[coffs.size()-1].value() << std::endl;
-
     }
 }
 
