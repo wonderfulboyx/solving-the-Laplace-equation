@@ -2,7 +2,7 @@
 #include <fstream>
 #include <Eigen/Core>
 #include <Eigen/Sparse>
-
+#include <iostream>
 
 typedef Eigen::SparseMatrix<double> SpMat;
 typedef Eigen::Triplet<double> T;
@@ -25,6 +25,8 @@ int main(int argc, char **argv)
 
     Eigen::SimplicialCholesky<SpMat> chol(A);
     Eigen::VectorXd x = chol.solve(b);
+
+    outputDat(argv[1], x, n);
 }
 
 void setBoundary(std::vector<T> &coffs,int id, int i, int j,double w,
@@ -42,14 +44,16 @@ void setBoundary(std::vector<T> &coffs,int id, int i, int j,double w,
 void insertCofficient(std::vector<T> &coffs,int id, int i, int j, double w,
                         Eigen::VectorXd &b, int n)
 {
-    
+    int id1 = i + j * n;
     if (i == -1 || j == -1 || i == n || j == n)
     {
         setBoundary(coffs, id, i, j, w, b, n);
     }
     else
     {
-        coffs.push_back(T(id, id, w));
+        coffs.push_back(T(id, id1, w));
+        std::cout << coffs.size() << "\t" << coffs[coffs.size()-1].value() << std::endl;
+
     }
 }
 
@@ -58,10 +62,10 @@ void buildProblem(std::vector<T> &coffs, Eigen::VectorXd &b, int n)
     for (int i = 0; i < n;++i){
         for (int j = 0; j < n;++j){
             int id = i + j * n;
-            insertCofficient(coffs, id, i - 1, j, 1.0, b, n);
-            insertCofficient(coffs, id, i + 1, j, 1.0, b, n);
-            insertCofficient(coffs, id, i, j + 1, 1.0, b, n);
-            insertCofficient(coffs, id, i, j - 1, 1.0, b, n);
+            insertCofficient(coffs, id, i - 1, j, -1.0, b, n);
+            insertCofficient(coffs, id, i + 1, j, -1.0, b, n);
+            insertCofficient(coffs, id, i, j + 1, -1.0, b, n);
+            insertCofficient(coffs, id, i, j - 1, -1.0, b, n);
             insertCofficient(coffs, id, i, j, 4.0, b, n);
         }
     }
