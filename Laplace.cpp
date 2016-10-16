@@ -14,5 +14,5 @@ int main(int argc, char **arfv)
     int m = n * n;
 
     std::vector<T> cofficients;
-    Eigen::VectorXd b(m);
+    Eigen::VectorXd b(m);//test
 }
