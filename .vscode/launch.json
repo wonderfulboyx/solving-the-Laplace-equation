@@ -5,8 +5,8 @@
             "name": "C++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/../output/a.out",
-            "args": ["${workspaceRoot}/../output/output.dat"],
+            "program": "${workspaceRoot}/bin/a.out",
+            "args": ["${workspaceRoot}/output/output.dat"],
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
             "environment": [],
@@ -25,7 +25,7 @@
             "name": "C++ Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "${workspaceRoot}/../output/a.out",
+            "program": "${workspaceRoot}/bin/a.out",
             "processId": "${command.pickProcess}",
             "linux": {
                 "MIMode": "gdb"

@@ -3,6 +3,6 @@
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "g++",
-    "args": ["-g","-Wall","-o","${workspaceRoot}/../output/a.out","Laplace.cpp"],
+    "args": ["-g","-Wall","-o","${workspaceRoot}/bin/a.out","Laplace.cpp"],
     "showOutput": "always"
 }
