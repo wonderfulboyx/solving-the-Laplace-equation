@@ -1,7 +1,8 @@
 #include <vector>
-#include <fstream>
 #include <Eigen/Core>
 #include <Eigen/Sparse>
+
+#include <fstream>
 #include <iostream>
 
 typedef Eigen::SparseMatrix<double> SpMat;
@@ -36,7 +37,7 @@ void setBoundary(std::vector<T> &coffs,int id, int i, int j,double w,
         b(id) -= w * (double)j / (double)n;
     }
     else
-    if (j == n){
+    if(j == n){
         b(id) -= w * (double)i / (double)n;
     }
 }
