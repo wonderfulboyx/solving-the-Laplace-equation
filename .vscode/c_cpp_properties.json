@@ -10,7 +10,8 @@
         },
         {
             "name": "Linux",
-            "includePath": ["/usr/include"],
+            "includePath": ["/usr/include",
+                            "/usr/local/include"],
             "browse" : {
                 "limitSymbolsToIncludedHeaders" : true,
                 "databaseFilename" : ""
